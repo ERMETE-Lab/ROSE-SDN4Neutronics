@@ -1,0 +1,9 @@
+name: sdn4neutronics-openmc
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - openmc
+  - numpy
+  - matplotlib
+  - pandas

@@ -1,0 +1,35 @@
+[project]
+name = "sdn4neutronics"
+version = "0.1.0"
+description = "Shallow Decoder Networks for Neutronics applications"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Stefano Riva" },
+  { name = "Carolina Introini" },
+]
+dependencies = [
+  "torch",
+  "numpy",
+  "scipy",
+  "scikit-learn",
+  "matplotlib",
+  "pyvista",
+  "tqdm",
+  "seaborn",
+]
+
+[project.optional-dependencies]
+dev = ["ipykernel", "jupyter"]
+
+[dependency-groups]
+dev = ["ipykernel", "jupyter"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["utils*"]
