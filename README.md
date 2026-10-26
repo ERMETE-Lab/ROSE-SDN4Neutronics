@@ -9,6 +9,12 @@ Monte Carlo (MC) neutronics is accurate but expensive: low-statistics runs are c
 1. **Reconstruction from sparse sensors and input parameters.** An SDN maps a few flux measurements, the control rod positions (REG and SHIM), or both, to the full flux field (about 1.3×10⁵ degrees of freedom). The field is compressed with an SVD reduced basis, so the network predicts a handful of coefficients. Random sensors are compared with sensors placed by the Empirical Interpolation Method (EIM).
 2. **Multi-fidelity (MF) learning from low to high statistics.** A first SDN is trained on many low-fidelity (LoFi) MC runs. A second, small SDN is trained on a few high-fidelity (HiFi) runs to learn the residual correction. The LoFi SVD basis is shared by both networks and also filters out part of the statistical noise. The approach is compared with classical MF baselines (linear, GP-residual and others).
 
+<p align="center">
+  <img src="docs/figures/mf_sdn_architecture.png" alt="Multi-fidelity SDN architecture" width="600">
+</p>
+
+*Multi-fidelity SDN: a first SDN maps the inputs to LoFi SVD coefficients, and a second, lightweight SDN learns the HiFi residual correction.*
+
 ## Installation
 
 The project uses [uv](https://docs.astral.sh/uv/) and requires Python 3.10 or later.
@@ -63,6 +69,16 @@ The `Appendix/` folder holds the supplementary studies:
 | `ExampleMF2D.ipynb`                     | Appendix B, 2D warm-up               | Reaction–diffusion system, MF-SDN versus baselines               |
 
 New users should start with `Appendix/ExampleMF1D.ipynb`. It is lightweight, needs no data and shows the multi-fidelity idea end to end.
+
+## Example results
+
+Reconstruction of the neutron flux on a plane through the TRIGA core for three test control rod configurations (the positions in cm are given above each column). From top to bottom: HiFi reference, multi-fidelity SDN, LoFi SDN, and the absolute residuals of the last two. The residual correction removes much of the LoFi error (paper Section 4.2, `MappingLowStat2HighStats.ipynb`).
+
+![Multi-fidelity reconstruction](docs/figures/mf_sdn_reconstruction.png)
+
+Reconstruction from three sparse sensors and rod positions using only HiFi data, comparing compressive training, full-state training and the plain SVD projection (paper Section 4.1, `ReconstructionFromSparseSensors.ipynb`).
+
+![Sparse-sensor reconstruction](docs/figures/sdn_reconstruction_sparse_sensors.png)
 
 ## Repository layout
 
