@@ -101,7 +101,7 @@ Regenerating the snapshots requires a separate conda environment with OpenMC and
 
 ## Citation
 
-If you use this code, please cite the paper (reference to be updated once published):
+If you use this code, please cite the paper:
 
 ```bibtex
 @article{RIVA2027112958,
@@ -115,7 +115,6 @@ doi = {https://doi.org/10.1016/j.anucene.2026.112958},
 url = {https://www.sciencedirect.com/science/article/pii/S0306454926008467},
 author = {Stefano Riva and Carolina Introini},
 keywords = {State estimation, Shallow decoders, TRIGA Mark II, Monte Carlo, Machine learning},
-abstract = {Monte Carlo methods are the state-of-the-art for accurate neutronic simulations, but the computational costs associated with these high-fidelity calculations can be prohibitive for multi-query applications, such as design, optimization, and sensitivity analysis. The accuracy of the simulations depends on the number of particles: for low-statistics (few particles), the computational costs are generally lower, but the outcome is affected by a significant statistical noise, which can be detrimental for the accuracy of the results; on the other hand, for high-statistics, the results are more accurate, but the computational cost is higher. To merge the abundance of cheap low-statistics data with the scarcity of expensive high-statistics data, this work proposes a multi-fidelity surrogate model based on Shallow Decoder Networks, a class of feed-forward neural networks, originally proposed for fluid reconstruction from sparse sensor data, with a simple architecture that prioritizes fast training, easy hyperparameter tuning, and physical interpretability of the learned basis. In particular, this work focuses on generating surrogate models to reconstruct the neutron flux field in a TRIGA Mark II reactor core, using either input parameters (e.g., control rod positions) or sparse measurements of the neutron flux, as well as a combination of both. This work demonstrates that a surrogate model of this kind can be very useful in improving the accuracy of low-fidelity Monte Carlo simulations. By extracting dominant features from low-statistics data and correcting high-fidelity solutions with a small set of high-statistics simulations, a relative error of less than 2% is achieved in the reconstructed neutron flux field.}
 }
 ```
 
